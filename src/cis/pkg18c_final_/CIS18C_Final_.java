@@ -9,6 +9,6 @@ public class CIS18C_Final_
 {
     public static void main(String[] args) 
     {
-        
+        GameManager manager = new GameManager();
     }
 }
