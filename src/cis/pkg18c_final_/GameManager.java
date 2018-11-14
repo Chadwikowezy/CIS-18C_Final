@@ -17,6 +17,7 @@ public class GameManager extends GameObjectBehavior
             _instance = new GameManager();
         
         return _instance;
+        
     }
     //endregion singleton behavior
     
