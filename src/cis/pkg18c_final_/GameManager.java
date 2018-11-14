@@ -41,8 +41,13 @@ public class GameManager extends GameObjectBehavior
     }
     public void subscribeToUpdate(GameObjectBehavior objectToSub)
     {
+        objectToSub.setGUID(_nextObjectKey);
         _allObjects.put(_nextObjectKey, objectToSub);
         _nextObjectKey++;
+    }
+    public void unsubscribeFromUpdate(GameObjectBehavior objectToUnsub)
+    {
+        _allObjects.remove(objectToUnsub.getGUID());
     }
     
     private void updateGame()
