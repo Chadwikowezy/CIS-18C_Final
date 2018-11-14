@@ -62,16 +62,100 @@ public class Player
     {
         //Function not finished. Still need to adjust current stat values.
         if (newGear.getGearType() == BaseGear.GearType.Helmet)
+        {
+            if (_helmet != null)
+            {
+                _maxHealth -= _helmet.getHealthIcrease();
+                _attack -= _helmet.getAttackIncrease();
+                _defense -= _helmet.getDefenseIncrease();
+                _heal -= _helmet.getHealIncrease();
+            }
+            
             _helmet = newGear;
+            _maxHealth += _helmet.getHealthIcrease();
+            _attack += _helmet.getAttackIncrease();
+            _defense += _helmet.getDefenseIncrease();
+            _heal += _helmet.getHealIncrease();
+        }
         else if (newGear.getGearType() == BaseGear.GearType.ChestPiece)
+        {
+            if (_chestPiece != null)
+            {
+                _maxHealth -= _chestPiece.getHealthIcrease();
+                _attack -= _chestPiece.getAttackIncrease();
+                _defense -= _chestPiece.getDefenseIncrease();
+                _heal -= _chestPiece.getHealIncrease();
+            }
+            
             _chestPiece = newGear;
+            _maxHealth += _chestPiece.getHealthIcrease();
+            _attack += _chestPiece.getAttackIncrease();
+            _defense += _chestPiece.getDefenseIncrease();
+            _heal += _chestPiece.getHealIncrease();
+        }
         else if (newGear.getGearType() == BaseGear.GearType.Gauntlets)
+        {
+            if (_gauntlets != null)
+            {
+                _maxHealth -= _gauntlets.getHealthIcrease();
+                _attack -= _gauntlets.getAttackIncrease();
+                _defense -= _gauntlets.getDefenseIncrease();
+                _heal -= _gauntlets.getHealIncrease();
+            }
+            
             _gauntlets = newGear;
+            _maxHealth += _gauntlets.getHealthIcrease();
+            _attack += _gauntlets.getAttackIncrease();
+            _defense += _gauntlets.getDefenseIncrease();
+            _heal += _gauntlets.getHealIncrease();
+        }
         else if (newGear.getGearType() == BaseGear.GearType.Cuirass)
+        {
+            if (_cuirass != null)
+            {
+                _maxHealth -= _cuirass.getHealthIcrease();
+                _attack -= _cuirass.getAttackIncrease();
+                _defense -= _cuirass.getDefenseIncrease();
+                _heal -= _cuirass.getHealIncrease();
+            }
+            
             _cuirass = newGear;
+            _maxHealth += _cuirass.getHealthIcrease();
+            _attack += _cuirass.getAttackIncrease();
+            _defense += _cuirass.getDefenseIncrease();
+            _heal += _cuirass.getHealIncrease();
+        }
         else if (newGear.getGearType() == BaseGear.GearType.Boots)
+        {
+            if (_boots != null)
+            {
+                _maxHealth -= _boots.getHealthIcrease();
+                _attack -= _boots.getAttackIncrease();
+                _defense -= _boots.getDefenseIncrease();
+                _heal -= _boots.getHealIncrease();
+            }
+            
             _boots = newGear;
+            _maxHealth += _boots.getHealthIcrease();
+            _attack += _boots.getAttackIncrease();
+            _defense += _boots.getDefenseIncrease();
+            _heal += _boots.getHealIncrease();
+        }
         else
+        {
+            if (_weapon != null)
+            {
+                _maxHealth -= _weapon.getHealthIcrease();
+                _attack -= _weapon.getAttackIncrease();
+                _defense -= _weapon.getDefenseIncrease();
+                _heal -= _weapon.getHealIncrease();
+            }
+            
             _weapon = newGear;
+            _maxHealth += _weapon.getHealthIcrease();
+            _attack += _weapon.getAttackIncrease();
+            _defense += _weapon.getDefenseIncrease();
+            _heal += _weapon.getHealIncrease();
+        }
     }
 }
