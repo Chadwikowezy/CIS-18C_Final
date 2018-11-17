@@ -10,6 +10,7 @@ public class Enemy
     private int attack;
     private int defense;
     private String name;
+    private String enemyString;
 
     public int getHealth()
     { return health; }
@@ -34,4 +35,25 @@ public class Enemy
 
     public void setName(String name) 
     { this.name = name; }
+    
+    public String toString()//override in subclasses if different monster types are wanted/needed
+    {
+        enemyString = new StringBuilder()
+                        .append("Monster,")
+                        .append("\n  Name: ").append(name)
+                        .append("\n  Health: ").append(health)
+                        .append("\n  Attack: ").append(attack)
+                        .append("\n  Defense: ").append(defense)
+                        .toString();
+        
+        return enemyString;
+    }
+    
+    Enemy()
+    {
+        name = "Default Enemy";
+        health = 20;
+        attack = 5;
+        defense = 2;
+    }
 }

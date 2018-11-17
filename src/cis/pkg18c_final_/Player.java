@@ -5,7 +5,7 @@
 
 package cis.pkg18c_final_;
 
-public class Player 
+public class Player extends GameObjectBehavior
 {
     private int _health;
     private int _baseMaxHealth;
@@ -24,6 +24,8 @@ public class Player
     private BaseGear _cuirass;
     private BaseGear _boots;
     private BaseGear _weapon;
+    
+    private String _playerString;
     
     //region getters and setters
     public int getHealth()
@@ -56,6 +58,8 @@ public class Player
     { return _boots; }
     public BaseGear getWeapon()
     { return _weapon; }
+    public String toString()
+    { return _playerString; }
     //endregion getters and setters
     
     public void equipGear(BaseGear newGear)
@@ -158,4 +162,43 @@ public class Player
             _heal += _weapon.getHealIncrease();
         }
     }
+    public void takeDamage(int damage)
+    {
+        _health -= damage;
+        
+        if (_health <= 0)
+            _health = 0;
+    }
+    public void heal()
+    {
+        _health += _heal;
+        
+        if (_health > _maxHealth)
+            _health = _maxHealth;
+    }
+    
+    Player()
+    {
+        _health = 100;
+        _baseMaxHealth = 100;
+        _baseAttack = 10;
+        _baseDefense = 5;
+        _baseHeal = 3;
+        
+        _maxHealth = 100;
+        _attack = 10;
+        _defense = 10;
+        _heal = 3;
+        
+        _playerString = new StringBuilder()
+                        .append("You,")
+                        .append("\n  Health: ").append(_health).append("/").append(_maxHealth)
+                        .append("\n  Attack: ").append(_attack)
+                        .append("\n  Defense: ").append(_defense)
+                        .append("\n  Heal: ").append(_heal)
+                        .toString();
+    }
+    @Override
+    void update() 
+    { }
 }

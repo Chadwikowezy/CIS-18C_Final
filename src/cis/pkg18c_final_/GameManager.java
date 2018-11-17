@@ -26,19 +26,15 @@ public class GameManager extends GameObjectBehavior
     private long _updateTimer;
     private long _updateInterval;
     private HashMap<Integer, GameObjectBehavior> _allObjects = new HashMap<Integer, GameObjectBehavior>();
-    
-    public GameManager()
+    private Player _currentPlayer;
+
+    GameManager()
     {
-        //setup game
-        _isRunning = true;
-        _nextObjectKey = 0;
-        _currentGameTime = System.currentTimeMillis();
-        _updateInterval = 100;//100 miliseconds = 0.1 secs
-        _updateTimer = 0;
-        
-        subscribeToUpdate(this);
-        updateGame();
+        if (_instance == null)
+            _instance = this;
     }
+    public Player getPlayer()
+    { return _currentPlayer; }
     public void subscribeToUpdate(GameObjectBehavior objectToSub)
     {
         objectToSub.setGUID(_nextObjectKey);
@@ -49,8 +45,22 @@ public class GameManager extends GameObjectBehavior
     {
         _allObjects.remove(objectToUnsub.getGUID());
     }
-    
-    private void updateGame()
+    public void startGame()
+    {
+        //setup game
+        _isRunning = true;
+        _nextObjectKey = 0;
+        _currentGameTime = System.currentTimeMillis();
+        _updateInterval = 100;//100 miliseconds = 0.1 secs
+        _updateTimer = 0;
+        _currentPlayer = new Player();
+        
+        subscribeToUpdate(this);
+        
+        EnemyRoom testRoom = new EnemyRoom();
+        testRoom.enterRoom();
+    }
+    public void updateGame()
     {
         while (_isRunning)
         {

@@ -8,9 +8,9 @@ import java.util.Random;
  */
 public class BaseRoom 
 {
-    private String description;
+    protected String description;
     private int numOfTotalDescriptions = 21;
-    private Boolean isExitRoom;
+    protected Boolean isExitRoom;
     private static Random random = new Random();
     
     BaseRoom()
@@ -27,64 +27,64 @@ public class BaseRoom
         switch(disc)
         {
             case 1:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 2:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 3:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 4:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 5:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 6:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 7:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 8:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 9:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 10:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 11:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 12:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 13:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 14:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 15:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 16:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 17:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 18:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 19:
-                description = "";
+                description = "Default dialogue";
                 break;
             case 20:
-                description = "";
+                description = "Default dialogue";
                 break;
             default:
                 description = "You can see nothing in this room, for it is a void.";
@@ -97,4 +97,11 @@ public class BaseRoom
 
     public void setIsExitRoom(Boolean isExitRoom)
     { this.isExitRoom = isExitRoom; }
+    
+    public void enterRoom() //override this in subclasses for abstract functionality
+    {}
+    public void displayRoomOptions() //override this in subclasses for custom displays
+    { }
+    public void processOptionSelection(int userSelection) //override this in subclasses for abstract functionality
+    {}
 }
