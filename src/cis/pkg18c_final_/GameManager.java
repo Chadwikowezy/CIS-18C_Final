@@ -27,6 +27,7 @@ public class GameManager extends GameObjectBehavior
     private long _updateInterval;
     private HashMap<Integer, GameObjectBehavior> _allObjects = new HashMap<Integer, GameObjectBehavior>();
     private Player _currentPlayer;
+    private BaseDungeon _currentDungeon;
 
     GameManager()
     {
@@ -35,6 +36,8 @@ public class GameManager extends GameObjectBehavior
     }
     public Player getPlayer()
     { return _currentPlayer; }
+    public BaseDungeon getCurrentDungeon()
+    { return _currentDungeon; }
     public void subscribeToUpdate(GameObjectBehavior objectToSub)
     {
         objectToSub.setGUID(_nextObjectKey);
@@ -54,16 +57,10 @@ public class GameManager extends GameObjectBehavior
         _updateInterval = 100;//100 miliseconds = 0.1 secs
         _updateTimer = 0;
         _currentPlayer = new Player();
+        _currentDungeon = new BasicDungeon();
         
         subscribeToUpdate(this);
-        
-        //============= Testing rooms Remove later ===============
-        EnemyRoom testRoom = new EnemyRoom();
-        testRoom.enterRoom();
-        
-        //LootRoom testRoomA = new LootRoom();
-        //testRoomA.enterRoom();
-        //============= Testing rooms Remove later ==============
+        _currentDungeon.startDungeon();
     }
     public void updateGame()
     {
@@ -85,6 +82,12 @@ public class GameManager extends GameObjectBehavior
     //region GameObjectBehavior
     @Override
     void update()
-    { }
+    { 
+        if (_currentPlayer.getHealth() <= 0)
+        {
+            System.out.println("You've Died!");
+            //Add restart logic if we have time
+        }
+    }
     //endregion GameObjectBehavior
 }

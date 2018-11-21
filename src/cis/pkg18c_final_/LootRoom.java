@@ -31,6 +31,9 @@ public class LootRoom extends BaseRoom
     @Override
     public void displayRoomOptions()
     {
+        if (GameManager.getInstance().getPlayer().getHealth() <= 0)
+            return;
+        
         if (!equipedGear)
         {
             BaseGear playerGear = null;

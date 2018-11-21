@@ -34,7 +34,9 @@ public class EnemyRoom extends BaseRoom
     @Override
     public void displayRoomOptions()
     {
-        //display player stats
+        if (GameManager.getInstance().getPlayer().getHealth() <= 0)
+            return;
+        
         if (enemy.getHealth() > 0)
         {
             System.out.println("\nSTATS...");
@@ -67,17 +69,33 @@ public class EnemyRoom extends BaseRoom
         
         if (enemy.getHealth() > 0)
         {
+            enemy.determineAction();
             if (userSelection == 1)
             {
                 if (!enemy.getIsDefending())
+                {
                     enemy.takeDamage(GameManager.getInstance().getPlayer().getCurrentAttack());
+                    GameManager.getInstance().getPlayer().takeDamage(enemy.getAttack());
+                }
                 else
                     enemy.takeDamage(GameManager.getInstance().getPlayer().getCurrentAttack() - enemy.getDefense());
             }
             else if (userSelection == 2)
-            {}  //defend against monster attack
+            {
+                if (!enemy.getIsDefending())
+                {
+                    int damageToPlayer = enemy.getAttack() - GameManager.getInstance().getPlayer().getCurrentDefense();
+                    if (damageToPlayer >= 1)
+                        GameManager.getInstance().getPlayer().takeDamage(damageToPlayer);
+                    else
+                        GameManager.getInstance().getPlayer().takeDamage(1);
+                }
+            }
             else if (userSelection == 3)
+            {
                 GameManager.getInstance().getPlayer().heal();
+                GameManager.getInstance().getPlayer().takeDamage(enemy.getAttack());
+            }
         }
         else
         {

@@ -24,11 +24,19 @@ public class BasicDungeon extends BaseDungeon
     {
         generateDungeon();
         _currentPlayerRoom = _startRoom;
-        //Notify player that they've entered the dungeon
+        System.out.println("You've entered the dungeon!\nFind your way out.");
+        
+        //============= Testing rooms Remove later ===============
+        EnemyRoom testRoom = new EnemyRoom();
+        testRoom.enterRoom();
+        
+        //LootRoom testRoomA = new LootRoom();
+        //testRoomA.enterRoom();
+        //============= Testing rooms Remove later ==============
     }
     protected void completeDungeon()
     {
-        //Display that the player completed the dungeon
-        //and ask what they want to do next.
+        System.out.println("You've found the exit room and completed the dungeon!");
+        //Add restart functionality if we have time
     }
 }

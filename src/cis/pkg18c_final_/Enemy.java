@@ -42,19 +42,6 @@ public class Enemy
     public boolean getIsDefending()
     { return isDefending; }
     
-    public String toString()//override in subclasses if different monster types are wanted/needed
-    {
-        enemyString = new StringBuilder()
-                        .append("Monster,")
-                        .append("\n  Name: ").append(name)
-                        .append("\n  Health: ").append(health)
-                        .append("\n  Attack: ").append(attack)
-                        .append("\n  Defense: ").append(defense)
-                        .toString();
-        
-        return enemyString;
-    }
-    
     Enemy()
     {
         Random rand = new Random();
@@ -72,6 +59,18 @@ public class Enemy
         isDefending = false;
     }
     
+    public String toString()//override in subclasses if different monster types are wanted/needed
+    {
+        enemyString = new StringBuilder()
+                        .append("Monster,")
+                        .append("\n  Name: ").append(name)
+                        .append("\n  Health: ").append(health)
+                        .append("\n  Attack: ").append(attack)
+                        .append("\n  Defense: ").append(defense)
+                        .toString();
+        
+        return enemyString;
+    }
     public void takeDamage(int damage)
     {
         health -= damage;
@@ -79,5 +78,10 @@ public class Enemy
             health = 0;
         
         toString();
+    }
+    public void determineAction()
+    {
+        Random rand = new Random();
+        isDefending = rand.nextBoolean();
     }
 }
