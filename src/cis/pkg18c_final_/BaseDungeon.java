@@ -18,6 +18,7 @@ public abstract class BaseDungeon
     protected List<LootRoom> _lootRooms;
     //protected List<NavigationRoom> _navigationRooms;
     
+    
     abstract protected void generateDungeon();
     abstract protected void startDungeon();
     abstract protected void completeDungeon();

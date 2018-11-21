@@ -7,6 +7,7 @@ package cis.pkg18c_final_;
 
 public class BasicDungeon extends BaseDungeon
 {
+    
     public BasicDungeon()
     {
         startDungeon();
@@ -17,6 +18,7 @@ public class BasicDungeon extends BaseDungeon
         //Generate a number of rooms based on current level.
         //Room types are randomized.
         //Sort rooms by type.
+       
     }
     protected void startDungeon()
     {

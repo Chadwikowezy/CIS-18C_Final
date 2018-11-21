@@ -47,6 +47,16 @@ class Graph
 			// adj.get(current.dest).add(current.src);
 		}
 	}
+        
+        public void addEdge(int src, int dest)
+        {
+            adj.get(src).add(dest);
+        }
+        
+        public void removeEdge(int src, int dest)
+        {
+            adj.get(src).remove(dest);
+        }
 
 	// print adjacency list representation of graph
 	private static void printGraph(Graph graph)
@@ -66,17 +76,17 @@ class Graph
 	}
 
 	// Directed Graph Implementation in Java
-	public static void main (String[] args)
+	//public static void main (String[] args)
 	{
             // Input: List of edges in a digraph (as per above diagram)
-            List<Edge> edges = Arrays.asList(new Edge(0, 1), new Edge(1, 2), 
-                    new Edge(2, 0), new Edge(2, 1),new Edge(3, 2), 
-                    new Edge(4, 5), new Edge(5, 4));
+            //List<Edge> edges = Arrays.asList(new Edge(0, 1), new Edge(1, 2), 
+                    //new Edge(2, 0), new Edge(2, 1),new Edge(3, 2), 
+                    //new Edge(4, 5), new Edge(5, 4));
 
             // construct graph from given list of edges
-            Graph graph = new Graph(edges);
+            //Graph graph = new Graph(edges);
 
             // print adjacency list representation of the graph
-            printGraph(graph);
+            //printGraph(graph);
 	}
 }
