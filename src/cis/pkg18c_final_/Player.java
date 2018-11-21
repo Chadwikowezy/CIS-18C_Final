@@ -18,6 +18,8 @@ public class Player extends GameObjectBehavior
     private int _defense;
     private int _heal;
     
+    private boolean _isDefending;
+    
     private BaseGear _helmet;
     private BaseGear _chestPiece;
     private BaseGear _gauntlets;
@@ -46,6 +48,8 @@ public class Player extends GameObjectBehavior
     { return _defense; }
     public int getCurrentHeal()
     { return _heal; }
+    public boolean getIsDefending()
+    { return _isDefending; }
     public BaseGear getHelmet()
     { return _helmet; }
     public BaseGear getChestPiece()
@@ -195,6 +199,8 @@ public class Player extends GameObjectBehavior
         _attack = 10;
         _defense = 10;
         _heal = 3;
+        
+        _isDefending = false;
         
         updateToString();
     }

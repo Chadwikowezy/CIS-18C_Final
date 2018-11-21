@@ -58,11 +58,11 @@ public class GameManager extends GameObjectBehavior
         subscribeToUpdate(this);
         
         //============= Testing rooms Remove later ===============
-        //EnemyRoom testRoom = new EnemyRoom();
-        //testRoom.enterRoom();
+        EnemyRoom testRoom = new EnemyRoom();
+        testRoom.enterRoom();
         
-        LootRoom testRoomA = new LootRoom();
-        testRoomA.enterRoom();
+        //LootRoom testRoomA = new LootRoom();
+        //testRoomA.enterRoom();
         //============= Testing rooms Remove later ==============
     }
     public void updateGame()

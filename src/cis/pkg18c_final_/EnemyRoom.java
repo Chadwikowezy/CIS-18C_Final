@@ -68,7 +68,12 @@ public class EnemyRoom extends BaseRoom
         if (enemy.getHealth() > 0)
         {
             if (userSelection == 1)
-            {}  //attack monster
+            {
+                if (!enemy.getIsDefending())
+                    enemy.takeDamage(GameManager.getInstance().getPlayer().getCurrentAttack());
+                else
+                    enemy.takeDamage(GameManager.getInstance().getPlayer().getCurrentAttack() - enemy.getDefense());
+            }
             else if (userSelection == 2)
             {}  //defend against monster attack
             else if (userSelection == 3)

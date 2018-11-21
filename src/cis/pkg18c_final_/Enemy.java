@@ -1,5 +1,7 @@
 package cis.pkg18c_final_;
 
+import java.util.Random;
+
 /**
  *
  * @author Jesus Ramos
@@ -11,6 +13,7 @@ public class Enemy
     private int defense;
     private String name;
     private String enemyString;
+    private boolean isDefending;
 
     public int getHealth()
     { return health; }
@@ -36,6 +39,9 @@ public class Enemy
     public void setName(String name) 
     { this.name = name; }
     
+    public boolean getIsDefending()
+    { return isDefending; }
+    
     public String toString()//override in subclasses if different monster types are wanted/needed
     {
         enemyString = new StringBuilder()
@@ -51,9 +57,27 @@ public class Enemy
     
     Enemy()
     {
-        name = "Default Enemy";
-        health = 20;
-        attack = 5;
-        defense = 2;
+        Random rand = new Random();
+        int nameInt = rand.nextInt(2);
+        
+        if (nameInt == 0)
+            name = "Dat One Guy";
+        else if (nameInt == 1)
+            name = "Dat Other Guy";
+        else
+            name = "Dat Other Other Guy";
+        health = rand.nextInt(5) + 15;
+        attack = rand.nextInt(4) + 1;
+        defense = rand.nextInt(2) + 1;
+        isDefending = false;
+    }
+    
+    public void takeDamage(int damage)
+    {
+        health -= damage;
+        if (health < 0)
+            health = 0;
+        
+        toString();
     }
 }
