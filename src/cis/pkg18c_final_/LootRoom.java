@@ -65,6 +65,7 @@ public class LootRoom extends BaseRoom
         else
         {
             System.out.println("\nLoot Equiped!");
+            System.out.println(GameManager.getInstance().getPlayer().toString());
             System.out.println("Would you like to...");
             System.out.println("    1. Move forward");
             System.out.println("    2. Move left");

@@ -161,6 +161,8 @@ public class Player extends GameObjectBehavior
             _defense += _weapon.getDefenseIncrease();
             _heal += _weapon.getHealIncrease();
         }
+        
+        updateToString();
     }
     public void takeDamage(int damage)
     {
@@ -168,6 +170,8 @@ public class Player extends GameObjectBehavior
         
         if (_health <= 0)
             _health = 0;
+        
+        updateToString();
     }
     public void heal()
     {
@@ -175,6 +179,8 @@ public class Player extends GameObjectBehavior
         
         if (_health > _maxHealth)
             _health = _maxHealth;
+        
+        updateToString();
     }
     
     Player()
@@ -190,6 +196,14 @@ public class Player extends GameObjectBehavior
         _defense = 10;
         _heal = 3;
         
+        updateToString();
+    }
+    @Override
+    void update() 
+    { }
+    
+    private void updateToString()
+    {
         _playerString = new StringBuilder()
                         .append("You,")
                         .append("\n  Health: ").append(_health).append("/").append(_maxHealth)
@@ -198,7 +212,4 @@ public class Player extends GameObjectBehavior
                         .append("\n  Heal: ").append(_heal)
                         .toString();
     }
-    @Override
-    void update() 
-    { }
 }

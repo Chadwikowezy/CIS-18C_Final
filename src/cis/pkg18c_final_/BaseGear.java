@@ -34,6 +34,10 @@ public class BaseGear
     {
         Random rand = new Random();
         _gearType = GearType.values()[rand.nextInt(5)];
+        _healthIncrease = rand.nextInt(20);
+        _attackIncrease = rand.nextInt(5);
+        _defenseIncrease = rand.nextInt(3);
+        _healIncrease = rand.nextInt(3);
     }
     public String toString()
     {
