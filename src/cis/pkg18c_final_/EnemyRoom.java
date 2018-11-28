@@ -19,6 +19,7 @@ public class EnemyRoom extends BaseRoom
     
     EnemyRoom()
     {
+        myRoomType = RoomType.Enemy;
         enemy = new Enemy();
     }
     
@@ -96,6 +97,8 @@ public class EnemyRoom extends BaseRoom
                 GameManager.getInstance().getPlayer().heal();
                 GameManager.getInstance().getPlayer().takeDamage(enemy.getAttack());
             }
+            
+            displayRoomOptions();
         }
         else
         {
@@ -108,7 +111,5 @@ public class EnemyRoom extends BaseRoom
             
             inputScanner = null;
         }
-        
-        displayRoomOptions();
     }
 }

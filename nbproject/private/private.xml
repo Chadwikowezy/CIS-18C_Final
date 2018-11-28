@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BaseDungeon.java</file>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/CIS18C_Final_.java</file>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BasicDungeon.java</file>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/LootRoom.java</file>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/EnemyRoom.java</file>
-            <file>file:/C:/Users/chad_/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BaseRoom.java</file>
+            <file>file:/C:/Users/ncc/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BaseRoom.java</file>
+            <file>file:/C:/Users/ncc/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/GameManager.java</file>
+            <file>file:/C:/Users/ncc/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BaseDungeon.java</file>
+            <file>file:/C:/Users/ncc/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/EnemyRoom.java</file>
+            <file>file:/C:/Users/ncc/Desktop/CIS-18C_Final/src/cis/pkg18c_final_/BasicDungeon.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,11 +18,16 @@ public class LootRoom extends BaseRoom
     public void setGearLoot(BaseGear gearLoot) 
     { this.gearLoot = gearLoot; }
     
+    LootRoom()
+    {
+        myRoomType = RoomType.Loot;
+        gearLoot = new BaseGear();
+    }
+    
     @Override
     public void enterRoom()
     {
         inputScanner = new Scanner(System.in);
-        gearLoot = new BaseGear();
         
         System.out.println("\nYou've entered a loot room!");
         System.out.println(description);

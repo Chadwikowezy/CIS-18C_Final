@@ -5,20 +5,54 @@
 
 package cis.pkg18c_final_;
 
+import java.util.Random;
+
 public class BasicDungeon extends BaseDungeon
 {
     
-    public BasicDungeon()
+    BasicDungeon()
     {
         startDungeon();
     }
     
     protected void generateDungeon()
     {
-        //Generate a number of rooms based on current level.
-        //Room types are randomized.
-        //Sort rooms by type.
-       
+        int randomInt;
+        Random rand = new Random();
+        BaseRoom generatedRoom;
+        
+        for (int i = 0; i < 21; i++)
+        {
+            randomInt = rand.nextInt(3);
+            if (randomInt == 0)
+                generatedRoom = new BaseRoom();
+            else if (randomInt == 1)
+                generatedRoom = new EnemyRoom();
+            else
+                generatedRoom = new LootRoom();
+            
+            _dungeonRooms.put(i, generatedRoom);
+            
+            //=========================================
+            //Add generatedRoom to graph here
+            //=========================================
+        }
+        
+        _startRoom = _dungeonRooms.get(0);
+        _endRoom = _dungeonRooms.get(20);
+        
+        BaseRoom roomToSort;
+        for (Integer key : _dungeonRooms.keySet())
+        {
+            roomToSort = _dungeonRooms.get(key);
+            
+            if (roomToSort.myRoomType == BaseRoom.RoomType.Navigation)
+                _navigationRooms.add(roomToSort);
+            else if (roomToSort.myRoomType == BaseRoom.RoomType.Enemy)
+                _enemyRooms.add((EnemyRoom)roomToSort);
+            else if (roomToSort.myRoomType == BaseRoom.RoomType.Loot)
+                _lootRooms.add((LootRoom)roomToSort);
+        }
     }
     protected void startDungeon()
     {
@@ -26,13 +60,7 @@ public class BasicDungeon extends BaseDungeon
         _currentPlayerRoom = _startRoom;
         System.out.println("You've entered the dungeon!\nFind your way out.");
         
-        //============= Testing rooms Remove later ===============
-        EnemyRoom testRoom = new EnemyRoom();
-        testRoom.enterRoom();
-        
-        //LootRoom testRoomA = new LootRoom();
-        //testRoomA.enterRoom();
-        //============= Testing rooms Remove later ==============
+        _currentPlayerRoom.enterRoom();
     }
     protected void completeDungeon()
     {

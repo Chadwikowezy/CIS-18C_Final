@@ -8,6 +8,8 @@ import java.util.Random;
  */
 public class BaseRoom 
 {
+    public enum RoomType { Navigation, Enemy, Loot }
+    protected RoomType myRoomType;
     protected String description;
     private int numOfTotalDescriptions = 21;
     protected Boolean isExitRoom;
@@ -15,6 +17,7 @@ public class BaseRoom
     
     BaseRoom()
     {
+        myRoomType = RoomType.Navigation;
         int rand = random.nextInt(numOfTotalDescriptions);
         setDescription(rand);
     }
@@ -97,6 +100,11 @@ public class BaseRoom
 
     public void setIsExitRoom(Boolean isExitRoom)
     { this.isExitRoom = isExitRoom; }
+    
+    public RoomType getRoomType()
+    {
+        return myRoomType;
+    }
     
     public void enterRoom() //override this in subclasses for abstract functionality
     {}
