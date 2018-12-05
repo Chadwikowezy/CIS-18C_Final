@@ -48,11 +48,41 @@ public class Enemy
         int nameInt = rand.nextInt(2);
         
         if (nameInt == 0)
-            name = "Dat One Guy";
+            name = "Imp";
         else if (nameInt == 1)
-            name = "Dat Other Guy";
+            name = "Goblin";
+        else if (nameInt == 2)
+            name = "Hobgoblin";
+        else if (nameInt == 3)
+            name = "Skeleton";
+        else if (nameInt == 4)
+            name = "Mimic";
+        else if (nameInt == 5)
+            name = "Rat";
+        else if (nameInt == 6)
+            name = "Spider";
+        else if (nameInt == 7)
+            name = "Undead";
+        else if (nameInt == 8)
+            name = "Giant Crab";
+        else if (nameInt == 9)
+            name = "Starved Hound";
+        else if (nameInt == 10)
+            name = "Werewolf";
+        else if (nameInt == 11)
+            name = "Slime";
+        else if (nameInt == 12)
+            name = "Werewolf";
+        else if (nameInt == 13)
+            name = "Stray Demon";
+        else if (nameInt == 14)
+            name = "Deranged Adventurer";
+        else if (nameInt == 15)
+            name = "Wyvern";                      
         else
-            name = "Dat Other Other Guy";
+        {
+            name = "Dat Boi";
+        }
         health = rand.nextInt(5) + 15;
         attack = rand.nextInt(4) + 1;
         defense = rand.nextInt(2) + 1;
