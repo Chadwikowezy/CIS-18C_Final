@@ -103,11 +103,17 @@ public class EnemyRoom extends BaseRoom
         else
         {
             if (userSelection == 1)
-            {} //move player to forward room
+            {
+                
+            } //move player to forward room
             else if (userSelection == 2)
-            {} //move player to left room
+            {
+                
+            } //move player to left room
             else if (userSelection == 3)
-            {} //move player to right room
+            {
+                
+            } //move player to right room
             
             inputScanner = null;
         }
