@@ -12,26 +12,14 @@ public class BasicDungeon extends BaseDungeon
     protected void generateDungeon()
     {
         _dungeonGraph = new Graph();
-        int randomInt;
-        Random rand = new Random();
         BaseRoom generatedRoom;
         
         for (int i = 0; i < 21; i++)
         {
-            randomInt = rand.nextInt(3);
-            if (randomInt == 0)
-                generatedRoom = new BaseRoom();
-            else if (randomInt == 1)
-                generatedRoom = new EnemyRoom();
-            else
-                generatedRoom = new LootRoom();
+            generatedRoom = createNewRoom();
             
             _dungeonRooms.put(i, generatedRoom);
-            
             _dungeonGraph.addRoomNode(generatedRoom);
-            //=========================================
-            //Add generatedRoom to graph here
-            //=========================================
         }
         
         _startRoom = _dungeonRooms.get(0);
@@ -54,6 +42,8 @@ public class BasicDungeon extends BaseDungeon
     {
         generateDungeon();
         _currentPlayerRoom = _startRoom;
+        _winningRoomNumber = new Random().nextInt(26) + 5;
+        _currentRoomNumber = 1;
         System.out.println("======================================"
                         + "\n     You've entered the dungeon!"
                         + "\n          Find your way out."
@@ -63,7 +53,36 @@ public class BasicDungeon extends BaseDungeon
     }
     protected void completeDungeon()
     {
-        System.out.println("You've found the exit room and completed the dungeon!");
+        System.out.println("\n====================================================="
+                         + "\nYou've found the exit room and completed the dungeon!"
+                         + "\n=====================================================");
         //Add restart functionality if we have time
+    }
+    public void movePlayer(BaseRoom targetRoom)
+    {
+        _currentRoomNumber++;
+        _currentPlayerRoom = targetRoom;
+        
+        if (_currentRoomNumber != _winningRoomNumber)
+            _currentPlayerRoom.enterRoom();
+        else
+            completeDungeon();
+    }
+    
+    int randomInt;
+    Random rand = new Random();
+    public BaseRoom createNewRoom()
+    {
+        BaseRoom newRoom;
+        randomInt = rand.nextInt(3);
+        
+        if (randomInt == 0)
+            newRoom = new BaseRoom();
+        else if (randomInt == 1)
+            newRoom = new EnemyRoom();
+        else
+            newRoom = new LootRoom();
+        
+        return newRoom;
     }
 }

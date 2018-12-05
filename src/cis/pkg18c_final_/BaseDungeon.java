@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 public abstract class BaseDungeon 
 {
+    protected int _winningRoomNumber;
+    protected int _currentRoomNumber;
     protected BaseRoom _currentPlayerRoom;
     protected BaseRoom _startRoom;
     protected BaseRoom _endRoom;
@@ -23,4 +25,6 @@ public abstract class BaseDungeon
     abstract protected void generateDungeon();
     abstract protected void startDungeon();
     abstract protected void completeDungeon();
+    abstract public void movePlayer(BaseRoom targetRoom);
+    abstract public BaseRoom createNewRoom();
 }

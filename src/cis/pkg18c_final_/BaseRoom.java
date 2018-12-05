@@ -1,6 +1,5 @@
 package cis.pkg18c_final_;
 
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +15,7 @@ public class BaseRoom
     private int numOfTotalDescriptions = 21;
     protected Boolean isExitRoom;
     private static Random random = new Random();
-    private Edge[] myEdges = new Edge[3];
+    protected Edge[] myEdges = new Edge[3];
     protected Scanner inputScanner;
     
     BaseRoom()
@@ -124,7 +123,20 @@ public class BaseRoom
     { 
         inputScanner = new Scanner(System.in);
         
-        System.out.println("\nYou've entered an empty room!");
+        if (myEdges[0] == null && myEdges[1] == null && myEdges[2] == null)
+        {
+            int randDir = new Random().nextInt(3);
+            
+            if (randDir == 0)
+                myEdges[0] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom());
+            else if (randDir == 1)
+                myEdges[1] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom()); 
+            else
+                myEdges[2] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom()); 
+        }
+        
+        System.out.println("\n============================="
+                         + "\nYou've entered an empty room!");
         System.out.println(description);
         displayRoomOptions();
     }
@@ -134,7 +146,22 @@ public class BaseRoom
         System.out.println("    1. Move forward");
         System.out.println("    2. Move left");
         System.out.println("    3. Move right");
+        
+        processOptionSelection(inputScanner.nextInt());
     }
     public void processOptionSelection(int userSelection) //override this in subclasses for abstract functionality
-    {}
+    {
+        if (userSelection < 1)
+            userSelection = 1;
+        else if (userSelection > 3)
+            userSelection = 3;
+        
+        if (myEdges[userSelection - 1] != null)
+            GameManager.getInstance().getCurrentDungeon().movePlayer(myEdges[userSelection - 1].getPosB());
+        else
+        {
+            System.out.println("Oh no... It looks like that door is stuck. You'll have to go another direction.");
+            displayRoomOptions();
+        }
+    }
 }

@@ -18,23 +18,10 @@ class Graph
         }
 	public Graph(ArrayList<BaseRoom> newRooms)
 	{
-            //List<Edge> edges = Arrays.asList(new Edge(0, 1), new Edge(1, 2), 
-            //new Edge(2, 3), new Edge(3, 4), new Edge(4, 5), new Edge(5,0));
             randomizer = new Random();
 
-            // allocate memory for adjacency list
             for (int i = 0; i < newRooms.size(); i++)
                 addRoomNode(newRooms.get(i));
-
-            // add edges to the undirected graph
-//            for (Edge current : edges)
-//            {
-//                // allocate new node in adjacency List from src to dest
-//                adj.get(current.src).add(current.dest);
-//
-//                // allocate new node in adjacency List from dest to src
-//                adj.get(current.dest).add(current.src);
-//            }
 	}
         
         public void addRoomNode(BaseRoom newRoom)
@@ -57,7 +44,7 @@ class Graph
                 {
                     currentRoom.addRoomEdge(randomRoomDir, newRoom);
                     roomAdded = true;
-                }  
+                }
                 else
                     currentRoom = currentRoom.getRoomEdges()[randomRoomDir].getPosB();
             }

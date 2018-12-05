@@ -1,5 +1,6 @@
 package cis.pkg18c_final_;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -28,7 +29,20 @@ public class LootRoom extends BaseRoom
     {
         inputScanner = new Scanner(System.in);
         
-        System.out.println("\nYou've entered a loot room!");
+        if (myEdges[0] == null && myEdges[1] == null && myEdges[2] == null)
+        {
+            int randDir = new Random().nextInt(3);
+            
+            if (randDir == 0)
+                myEdges[0] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom());
+            else if (randDir == 1)
+                myEdges[1] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom()); 
+            else
+                myEdges[2] = new Edge(this, GameManager.getInstance().getCurrentDungeon().createNewRoom()); 
+        }
+        
+        System.out.println("\n==========================="
+                         + "\nYou've entered a loot room!");
         System.out.println(description);
         displayRoomOptions();
     }
@@ -97,12 +111,16 @@ public class LootRoom extends BaseRoom
                 GameManager.getInstance().getPlayer().equipGear(gearLoot);
                 displayRoomOptions();
             }
-            else if (userSelection == 2)
-            {} //Move forward
-            else if (userSelection == 3)
-            {} //Move left
-            else if (userSelection == 4)
-            {} //Move right
+            else
+            {
+                if (myEdges[userSelection - 1] != null)
+                    GameManager.getInstance().getCurrentDungeon().movePlayer(myEdges[userSelection - 1].getPosB());
+                else
+                {
+                    System.out.println("Oh no... It looks like that door is stuck. You'll have to go another direction.");
+                    displayRoomOptions();
+                }
+            }
         }
         else
         {
@@ -111,12 +129,13 @@ public class LootRoom extends BaseRoom
             else if (userSelection > 3)
                 userSelection = 3;
             
-            if (userSelection == 1)
-            {} //Move forward
-            else if (userSelection == 2)
-            {} //Move left
-            else if (userSelection == 3)
-            {} //Move right
+            if (myEdges[userSelection - 1] != null)
+                GameManager.getInstance().getCurrentDungeon().movePlayer(myEdges[userSelection - 1].getPosB());
+            else
+            {
+                System.out.println("Oh no... It looks like that door is stuck. You'll have to go another direction.");
+                displayRoomOptions();
+            }
         }
         
         inputScanner = null;
