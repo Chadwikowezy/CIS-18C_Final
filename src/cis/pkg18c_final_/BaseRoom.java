@@ -30,22 +30,28 @@ public class BaseRoom
         switch(disc)
         {
             case 1:
-                description = "Default dialogue";
+                description = "A desolate stone-walled room. A single candle burns in the corner."
+                        + "There's a pair of broken chains on the other side of the room.";
                 break;
             case 2:
-                description = "Default dialogue";
+                description = "A small secluded graveyard full of untended graves. You can hear the souls of the damned"
+                        + " calling out to you. Be wary that you don't end up along with them...";
                 break;
             case 3:
-                description = "Default dialogue";
+                description = "A dark damp room. There's an empty, opened cage in the corner."
+                        + "There appears to be a set of ragged clothing within.";
                 break;
             case 4:
-                description = "Default dialogue";
+                description = "A large room full of decrepit furniture.";
                 break;
             case 5:
-                description = "Default dialogue";
+                description = "A hidden archive that houses knowledge lost to the ages. Rumor has it that"
+                        + " guardians roam around, carefully keeping watch over the precious secrets"
+                        + " that are contained within.";
                 break;
             case 6:
-                description = "Default dialogue";
+                description = "A small alter room covered in ornate decorations. Many holymen would consider"
+                        + "this place to be a...";
                 break;
             case 7:
                 description = "Default dialogue";
