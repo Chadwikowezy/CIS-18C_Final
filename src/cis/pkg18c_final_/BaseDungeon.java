@@ -17,6 +17,7 @@ public abstract class BaseDungeon
     protected ArrayList<EnemyRoom> _enemyRooms = new ArrayList<EnemyRoom>();
     protected ArrayList<LootRoom> _lootRooms = new ArrayList<LootRoom>();
     protected ArrayList<BaseRoom> _navigationRooms = new ArrayList<BaseRoom>();
+    protected Graph _dungeonGraph;
     
     
     abstract protected void generateDungeon();

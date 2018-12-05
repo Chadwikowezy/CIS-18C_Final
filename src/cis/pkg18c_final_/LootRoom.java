@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class LootRoom extends BaseRoom
 {
     private BaseGear gearLoot;
-    private Scanner inputScanner;
     private boolean equipedGear;
 
     public BaseGear getGearLoot()

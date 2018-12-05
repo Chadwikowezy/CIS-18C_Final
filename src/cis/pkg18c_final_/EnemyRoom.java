@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class EnemyRoom extends BaseRoom
 {
     private Enemy enemy;
-    private Scanner inputScanner;
 
     public Enemy getEnemy() 
     { return enemy; }

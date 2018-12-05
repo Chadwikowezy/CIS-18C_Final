@@ -13,11 +13,16 @@ package cis.pkg18c_final_;
 // data structure to store graph edges
 public class Edge
 {
-    int src, dest;
+    private BaseRoom posA, posB;
 
-    Edge(int src, int dest)
+    Edge(BaseRoom posA, BaseRoom posB)
     {
-        this.src = src;
-        this.dest = dest;
+        this.posA = posA;
+        this.posB = posB;
     }
+    
+    public BaseRoom getPosA()
+    { return posA; }
+    public BaseRoom getPosB()
+    { return posB; }
 }

@@ -8,15 +8,10 @@ package cis.pkg18c_final_;
 import java.util.Random;
 
 public class BasicDungeon extends BaseDungeon
-{
-    
-    BasicDungeon()
-    {
-        startDungeon();
-    }
-    
+{    
     protected void generateDungeon()
     {
+        _dungeonGraph = new Graph();
         int randomInt;
         Random rand = new Random();
         BaseRoom generatedRoom;
@@ -33,6 +28,7 @@ public class BasicDungeon extends BaseDungeon
             
             _dungeonRooms.put(i, generatedRoom);
             
+            _dungeonGraph.addRoomNode(generatedRoom);
             //=========================================
             //Add generatedRoom to graph here
             //=========================================
@@ -58,7 +54,10 @@ public class BasicDungeon extends BaseDungeon
     {
         generateDungeon();
         _currentPlayerRoom = _startRoom;
-        System.out.println("You've entered the dungeon!\nFind your way out.");
+        System.out.println("======================================"
+                        + "\n     You've entered the dungeon!"
+                        + "\n          Find your way out."
+                        + "\n=====================================");
         
         _currentPlayerRoom.enterRoom();
     }

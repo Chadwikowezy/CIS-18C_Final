@@ -1,6 +1,8 @@
 package cis.pkg18c_final_;
 
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -14,6 +16,8 @@ public class BaseRoom
     private int numOfTotalDescriptions = 21;
     protected Boolean isExitRoom;
     private static Random random = new Random();
+    private Edge[] myEdges = new Edge[3];
+    protected Scanner inputScanner;
     
     BaseRoom()
     {
@@ -102,14 +106,29 @@ public class BaseRoom
     { this.isExitRoom = isExitRoom; }
     
     public RoomType getRoomType()
-    {
-        return myRoomType;
-    }
+    { return myRoomType; }
+    
+    public void addRoomEdge(int edgeDir, BaseRoom edgeDestination)
+    { myEdges[edgeDir] = (new Edge(this, edgeDestination)); }
+    
+    public Edge[] getRoomEdges()
+    { return myEdges; }
     
     public void enterRoom() //override this in subclasses for abstract functionality
-    {}
+    { 
+        inputScanner = new Scanner(System.in);
+        
+        System.out.println("\nYou've entered an empty room!");
+        System.out.println(description);
+        displayRoomOptions();
+    }
     public void displayRoomOptions() //override this in subclasses for custom displays
-    { }
+    { 
+        System.out.println("\nWould you like to...");
+        System.out.println("    1. Move forward");
+        System.out.println("    2. Move left");
+        System.out.println("    3. Move right");
+    }
     public void processOptionSelection(int userSelection) //override this in subclasses for abstract functionality
     {}
 }
