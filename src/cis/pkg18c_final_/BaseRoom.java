@@ -37,8 +37,7 @@ public class BaseRoom
                         + "There's a pair of broken chains on the other side of the room.";
                 break;
             case 2:
-                description = "A small secluded graveyard full of untended graves. You can hear the souls of the damned"
-                        + " calling out to you. Be wary that you don't end up along with them...";
+                description = "An empty room.";
                 break;
             case 3:
                 description = "A dark damp room. There's an empty, opened cage in the corner."
@@ -53,50 +52,49 @@ public class BaseRoom
                         + " that are contained within.";
                 break;
             case 6:
-                description = "A small alter room covered in ornate decorations. Many holymen would consider"
-                        + "this place to be a...";
+                description = "A small alter room covered in ornate decorations.";
                 break;
             case 7:
-                description = "Default dialogue";
+                description = "A room filled to the brim with chests. One's bound to be a mimic...";
                 break;
             case 8:
-                description = "Default dialogue";
+                description = "A room full of paintings of far away lands.";
                 break;
             case 9:
-                description = "Default dialogue";
+                description = "A blood-soaked room full of guts and body parts. Something big happened here not too long ago...";
                 break;
             case 10:
-                description = "Default dialogue";
+                description = "A barren room. There's a door on the other side with a skeleton engraved into the frame.";
                 break;
             case 11:
-                description = "Default dialogue";
+                description = "A torture chamber filled with nasty devices and human remains. Blood markings are scattered all across.";
                 break;
             case 12:
-                description = "Default dialogue";
+                description = "An upside down room. You wonder how this room was even able to be constructed.";
                 break;
             case 13:
-                description = "Default dialogue";
+                description = "An ornate room that is covered in gilded furnishing. Who knows how much gold was spent docorating this lavish place...";
                 break;
             case 14:
-                description = "Default dialogue";
+                description = "A large room filled with cells.";
                 break;
             case 15:
-                description = "Default dialogue";
+                description = "A seemingly normal room with seemingly regular furniture. It feels out of place considering this is a dungeon.";
                 break;
             case 16:
-                description = "Default dialogue";
+                description = "A completely crystalized room. The light blue crystals that the room is covered in are giving off a large magical energy.";
                 break;
             case 17:
-                description = "Default dialogue";
+                description = "A room covered in runic symbols. Looks like someone attempted to summon something from another plane.";
                 break;
             case 18:
-                description = "Default dialogue";
+                description = "A room covered in demonic etchings. Seems like demons have been using this to traverse here from their hellish homeland.";
                 break;
             case 19:
-                description = "Default dialogue";
+                description = "A room that's completely covered in slime. Must be a slime hive.";
                 break;
             case 20:
-                description = "Default dialogue";
+                description = "A room that feels oddly hot. Perhaps there's something burning in here. You should leave as soon as possible.";
                 break;
             default:
                 description = "You can see nothing in this room, for it is a void.";
